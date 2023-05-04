@@ -190,7 +190,7 @@ BEGIN
 				--re-determine the element end and chunk contents this can happen if quotes are
 				--included in the string contents
 				if @var_length > @quote_end begin
-					set @element_end = patindex('%;%', substring(@phpSerialized, @var_length_end+@var_length+2, len(@phpSerialized))) + @var_length_end+@var_length+2
+					set @element_end = @quote_end + 2
 					set @chunk = substring(@phpSerialized, @element_start, @element_end-@element_start)
 				end
 
